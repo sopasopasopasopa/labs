@@ -263,7 +263,7 @@ void insert_passenger(const char* filename, char* in, hash_table* table) {
 
 void erase_passenger(const char* filename, const char* key, hash_table* table) {
     if (!found_passenger(table, key)) {
-        printf("Пассажир уже в базе данных\n");
+        printf("Пассажира нет в базе данных\n");
         return;
     }
     FILE* file = fopen(filename, "w");
