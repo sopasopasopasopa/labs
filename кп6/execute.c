@@ -108,7 +108,7 @@ int main(int argc, char *argv[]) {
             }
             erase_passenger(filename, arg, table);
             if (file == NULL) {
-                perror("Ошибка при работе с файлом");
+                printf("Ошибка при работе с файлом");
                 exit(1);
             }
  
