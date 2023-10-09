@@ -6,13 +6,13 @@
 int main(int argc, char *argv[]) {
     if (argc != 3) {
         printf("Используйте:\n\t./generate FILE_FROM FILE_TO\n");
-        exit(0);
+        exit(0); // ввести исполняемый файл
     }
     char filename[STR_SIZE];
     strncpy(filename, argv[1], STR_SIZE - 1);
     filename[STR_SIZE - 1] = '\0';
 
-    char* ext = strrchr(filename, '.');
+    char* ext = strrchr(filename, '.'); 
     bool is_binary = false;
     if (strcmp(ext, ".txt") == 0 || ext == NULL) {
         printf("Вы используете текстовый файл\n");
@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
     FILE* in;
     FILE* out;
     char line[STR_SIZE];    
-    if (!is_binary) {
+    if (!is_binary) { // если файл текстовый
         in = fopen(argv[1], "r");
         out = fopen(argv[2], "wb");  // открываем текстовый
 
@@ -52,7 +52,7 @@ int main(int argc, char *argv[]) {
 
         while (!feof(in)) {
             passenger* pas = create_passenger();
-            if(!read_passenger_bin(pas, in)) {
+            if(!read_passenger_bin(pas, in)) { 
                 destructor_passenger(pas);
                 break;
             }
